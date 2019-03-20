@@ -8,9 +8,14 @@ const ascii = "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
 	`@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_` +
 	"`abcdefghijklmnopqrstuvwxyz{|}~\x7f"
 
+const Secondascii = "人物"
+
 // Oppgave 1b
 // Implementer en funksjon som eksportere const ascii
 
+func GetASCIIStringLiteral() string {
+	return ascii
+}
 
 // Funksjon tar en "string literal" med kun ASCII tegn og lager en utskrift på
 // følgende format:
@@ -23,9 +28,17 @@ const ascii = "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
 // 3F ? 111111
 // 40 @ 1000000
 // ...
+
 func IterateOverASCIIStringLiteral(stringLiteral string) {
 	// Kode for Oppgave 1a
-	
+	for i := 0; i < len(stringLiteral); i++ {
+		fmt.Printf("%X ", stringLiteral[i])
+		fmt.Print(" ")
+		fmt.Printf("%c ", stringLiteral[i])
+		fmt.Print(" ")
+		fmt.Printf("%b ", stringLiteral[i])
+		fmt.Println()
+	}
 }
 
 // Unix-like operating systems are known to use it as erase control character, i.e. to delete the previous character in the line mode. 
@@ -39,5 +52,5 @@ func IterateOverASCIIStringLiteral(stringLiteral string) {
 // som inneholder kun ASCII tegn (ikke utvidet ASCII).
 // Gjelder oppgave 1c
 func GreetingASCII() string {
-	return ""
+	return "\x48\x65\x6c\x6c\x6f\x20\x3a\x2d\x29"
 }
